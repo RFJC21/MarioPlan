@@ -51,3 +51,31 @@
 //So well use thunk, that allow us to perforn asynchronous tasks inside of our action creators. we can return a function inside of our action creators, which can interact with the database
 //26.1) apply thunk to our store in index.js, importing applyMiddleware and thunk
 //27) create an action creator (with thunk we return a function, instead of an object)
+//28) in createProject, lets disptach this action creator. import the function, import connect (we need to connect this component to the store)
+//28.1) create mapDispatchToProps
+//28.2) now we can call the createProject in the handleSubmit with this.props
+//28.3) to update the state, we need to go to the projectReducer, and we need to checc which action  we are receiving. We can use switch or if statement
+
+//Firebase
+//29) create a database in firebase ( go to firebase and create a new project)
+//29.1) install firebase (npm install firebase), and create another folder in src called config, and the js file
+//29.2) configure cloud firestore
+//29.3) connect redux to firebase (npm install react-redux-firebase redux-firestore)
+//29.4) now we have to pass the extra argument to the action creator
+//29.5) noww we need to tell that we need to conenct to a specific firebase, and with thunk, we can have multiple store enhancers, and we can do that with the "compose method". we need 3 store enhancers.
+
+//Add data to firebase
+//30)in projectActions, create a file, add .then because it takes some time, and .catch to spot errors
+//31) handle the .then and .catch in the reducer, adding a case to the switch
+//32) now sync redux data with firestore.
+//32.1) first import  firestoreReducer and set it in the rootReducer
+//32.2) connect the component (dashboard) to the firestore collection, with firestoreConnect (a HOC) and compose. Deu erro, fazer:  npm i --save react-redux-firebase@latest e npm i --save react-redux@^5.0.0
+//33.3) now we can grab the data from firestore
+//33.4) add the property in the mapStateToProps
+//33.5) click on the project and show the data. in project list, import Link, and link it to project + project.id
+//33.6) add the data from project details. we need connect and firestoreconnect, and compose because we need to compose these 2 together
+//33.7) now lets output the data in the same component, using agina destructuring
+
+//Firebase Auth
+//34) enable firebase auth in firebase
+//35) we need to access the state to see which components do we need to render, depending if the user is signed in or out. So lets add a firebaseReducer to do the authentication syncing for us, in the rootreducer
