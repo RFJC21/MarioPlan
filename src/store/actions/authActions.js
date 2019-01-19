@@ -11,7 +11,7 @@ export const signIn = credentials => {
       .then(() => {
         dispatch({ type: actionTypes.LOGIN_SUCCESS });
       })
-      .catch(erroR => {
+      .catch(error => {
         dispatch({ type: actionTypes.LOGIN_ERROR, error });
       });
   };
